@@ -2,6 +2,7 @@ import { Home } from "./Pages/Home.jsx"
 import { ThemeProvider, CssBaseline } from "@mui/material"
 import { theme } from "./UI/theme";
 import { ReactFlowProvider } from "@xyflow/react"
+import { DnDProvider } from "./provider/DnDContext.jsx"
 
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
     <ThemeProvider theme={theme} >
       <CssBaseline />
       <ReactFlowProvider>
-        <Home />
+        <DnDProvider>
+          <Home />
+        </DnDProvider>
       </ReactFlowProvider>
     </ThemeProvider>
   )
