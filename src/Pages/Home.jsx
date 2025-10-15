@@ -31,12 +31,13 @@ export function Home() {
     // Helper: show snackbar
     const showSnack = (severity, message) => setSnack({ open: true, severity, message });
 
-    // Handle connection logic with validation
     const onConnect = useCallback(
         (params) => {
+
+            // This can be removed. 
             // Enforce: one edge only per source handle
             const hasOutgoingFromSameSource = edges.some(
-                (e) => e.source === params.source && e.sourceHandle === params.sourceHandle
+                (e) => e.source === params.source
             );
 
             if (hasOutgoingFromSameSource) {
@@ -55,7 +56,6 @@ export function Home() {
         setSelectedNode(node);
     };
 
-    // drop a new node from the nodes panel
     const onDragOver = useCallback((event) => {
         event.preventDefault();
         event.dataTransfer.dropEffect = "move";
